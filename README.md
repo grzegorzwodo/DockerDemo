@@ -7,25 +7,34 @@ https://frontstack.pl/docker-wprowadzenie/
 
 ## Commends
 
-`docker images`
+`docker images` - pobiera liste obrazów na lokalnym komputerze
 
-`docker ps`
+`docker ps` - wyswietla uruchomione kontenery
 
-`docker ps -a`
+`docker ps -a` - wyswietla uruchomione i zatrzymane kontenery
 
-`docker run nginx` 
+`docker pull` - pobranie obrazu na lokalny komputer
+ 
+`docker run nginx` - uruchomienie nowego kontenera z obrazu nginx
 
-`docker run -d nginx`
+`docker run -d nginx` - uruchomienie kontenera nginx w trybie deamon
 
-`docker exec -it`
+`docker logs ngingx` - wysietla logi kontenera
 
-`docker stop`
+`docker stop` - zatrzymanie kontenera
 
-`docker start`
+`docker start` - ponowne uruchomienie zatrzymanego wczesniej kontenera
 
-`docker rmi`
+`docker exec -it {container} bash` - uruchomienie polecenia w trybie terminala wewnarze kontenra
 
-`docker rm`
+`docker run -d -p 8777:80 --name my-nginx nginx` - uruchominie w trybie deamon z przekirowaniem portu lokalnego 8777 na 80 wewntrz obrazu nginx ktory nazwalismy my-ngninx
+
+`docker run -d -p 8777:80 --name my-nginx -v /home/grzegorz/workspace/DockerDemo/web/:/usr/share/nginx/html/ nginx` - to co powyzej plus podmapowanie loklanego katalogu ./web/ do usr/share/nginx/html wewnatrz kontenera
+ !UWAGA - warto stosowac pelna sciezke do katalogu
+
+`docker rmi` - usuwanie obrazu 
+
+`docker rm` - usuwanie zatrzymanego kontenera
 
 `docker rm $(docker ps -a -q)`
 
